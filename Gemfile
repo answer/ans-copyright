@@ -4,4 +4,11 @@ source 'http://gem.ans-web.co.jp/public'
 # Specify your gem's dependencies in ans-copyright.gemspec
 gemspec
 
-gem "ans-releaser"
+group :development, :test do
+  gem "ans-releaser"
+
+  gem "rspec"
+  gem "rr"
+
+  gem "delorean"
+end

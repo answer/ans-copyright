@@ -22,14 +22,14 @@ Or install it yourself as:
       include Ans::Copyright
     end
 
-    <%= show_copyright "&copy; Answer", since: 2012 %>
+    # now: 2013
+    <%= show_copyright "&copy; Answer" %>                         # => &copy; Answer
+    <%= show_copyright "&copy; Answer", now: 2012 %>              # => &copy; Answer 2012
+    <%= show_copyright "&copy; Answer", since: 2012 %>            # => &copy; Answer 2012 - 2013
+    <%= show_copyright "&copy; Answer", since: 2012, now: 2014 %> # => &copy; Answer 2012 - 2014
 
-    # => &copy; Answer 2012 - 2013
-
-## Options
-
-* since: 年 # この年から
-* year:  年 # この年まで (省略すると今年)
+    <%= show_copyright "&copy; Answer", since: 2012, now: 2014, padding: " = ", separator: " < " %>
+    # => &copy; Answer = 2012 < 2014
 
 ## Contributing
 
@@ -38,3 +38,9 @@ Or install it yourself as:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## run rspec
+
+1. bundle install --path=path/to/bundle
+2. add feature
+3. run spec (`bundle exec rspec`)
