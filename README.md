@@ -23,13 +23,16 @@ Or install it yourself as:
     end
 
     # now: 2013
-    <%= raw show_copyright "&copy; Answer" %>                         # => &copy; Answer
-    <%= raw show_copyright "&copy; Answer", now: 2012 %>              # => &copy; Answer 2012
-    <%= raw show_copyright "&copy; Answer", since: 2012 %>            # => &copy; Answer 2012 - 2013
-    <%= raw show_copyright "&copy; Answer", since: 2012, now: 2014 %> # => &copy; Answer 2012 - 2014
+    <%= show_copyright "&copy; Answer" %>                         # => &copy; Answer
+    <%= show_copyright "&copy; Answer", now: 2012 %>              # => &copy; Answer 2012
+    <%= show_copyright "&copy; Answer", since: 2012 %>            # => &copy; Answer 2012 - 2013
+    <%= show_copyright "&copy; Answer", since: 2012, now: 2014 %> # => &copy; Answer 2012 - 2014
 
-    <%= raw show_copyright "&copy; Answer", since: 2012, now: 2014, padding: " = ", separator: " < " %>
+    <%= show_copyright "&copy; Answer", since: 2012, now: 2014, padding: " = ", separator: " < " %>
     # => &copy; Answer = 2012 < 2014
+
+    <%= show_copyright "&copy; Answer", file: "path/to/now" %>
+    # => file で指定したファイルの mtime から now を指定する
 
 ## Contributing
 
