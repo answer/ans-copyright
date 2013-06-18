@@ -15,18 +15,18 @@ module Ans
 
       unless opts[:since]
         unless opts[:now]
-          copyright
+          raw copyright
         else
-          "#{copyright}#{padding}#{opts[:now]}"
+          raw "#{copyright}#{padding}#{opts[:now]}"
         end
       else
         now = (opts[:now] || Time.now.strftime("%Y")).to_i
         since = opts[:since].to_i
 
         if since ==  now
-          "#{copyright}#{padding}#{since}"
+          raw "#{copyright}#{padding}#{since}"
         else
-          "#{copyright}#{padding}#{since}#{separator}#{now}"
+          raw "#{copyright}#{padding}#{since}#{separator}#{now}"
         end
       end
     end
