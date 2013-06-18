@@ -9,6 +9,10 @@ module Ans
       padding = opts[:padding] || " "
       separator = opts[:separator] || " - "
 
+      if opts[:file]
+        opts[:now] = File.mtime(Rails.root.join opts[:file]).year
+      end
+
       unless opts[:since]
         unless opts[:now]
           copyright
