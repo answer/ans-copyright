@@ -38,4 +38,21 @@ describe Ans::Copyright, "show_copyright" do
     subject{helper.show_copyright copyright, since: 2012, now: 2014, padding: "=", separator: ":"}
     it{should == "&copy; Answer=2012:2014"}
   end
+
+  context "file を指定した場合" do
+    before do
+      File.open full_path, "w" do |f|
+        f.puts "test"
+      end
+    end
+    after do
+      File.unlink full_path
+    end
+    let(:full_path){Rails.root.join path}
+    let(:path){"tmp/ans-copyright.txt"}
+    let(:now){Time.now.year}
+
+    subject{helper.show_copyright copyright, file: path}
+    it{should == "&copy; Answer #{now}"}
+  end
 end
